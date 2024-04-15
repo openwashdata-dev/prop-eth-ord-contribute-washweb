@@ -1,0 +1,12 @@
+WP,Name,Project Activity,Lead,Q1,Q2,Q3,Q4
+WP1,Maintain,"Update the WHO/UNICEF JMP R data package to represent the latest figures published, add functions for automatic updates and testing.",ND,NA,NA,NA,NA
+WP1,Maintain,Liaise with JMP on issues identified in their data files to improve the (automated) data pipeline and create greater awareness.,ND,NA,NA,NA,NA
+WP1,Maintain,Provide helper functions to shape data for better useability by researchers.,"ND, SA",NA,NA,NA,NA
+WP1,Maintain,Update ORD documentation to provide examples on how to load and transform the datasets for analysis.,"ND, SA",NA,NA,NA,NA
+WP2,Extend,Engage with authoritative data providers to determine feasibility and level of collaboration to produce an R package for WASH economic data.,ND,NA,NA,NA,NA
+WP2,Extend,Develop and publish an R package dataset for at least one of the identified  authoritative data providers.,ND,NA,NA,NA,NA
+WP2,Extend,"Add organisation identifiers in the dataset in collaboration with the data provider and a public registry (https://org-id.guide/ and/or Wikidata). With identifiers, researchers can leverage metadata on the type of investors for analysis.",SA,NA,NA,NA,NA
+WP2,Extend,Provide documentation on how to use the economic data.,SA,NA,NA,NA,NA
+WP3,Disseminate,Host a webinar on innovations in WASH open data practices and highlight ongoing work under WP1 and WP2.,ML,NA,NA,NA,NA
+WP3,Disseminate,Host  a session at Stockholm World Water Week “Unlocking the hidden potential of open WASH data”.,"SA, ML",NA,NA,NA,NA
+WP3,Disseminate,"Invite WASHWeb and openwashdata communities and others to join discussion groups for all thematic areas (1. Using Data Better, 2. Accountability, 3. Systems Strengthening, 4. Social Justice & Privacy) and facilitate ongoing conversations (live and in-chat).",ML,NA,NA,NA,NA

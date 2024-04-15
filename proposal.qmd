@@ -1,26 +1,21 @@
 ---
-title: "TITLE"
-subtitle: "SUBTILE"
-author: 
-  - name: "Lars Schöbitz"
-    url: https://www.lse.de
-    affiliation: Global Health Engineering, ETH Zurich
-    affiliation_url: https://ghe.ethz.ch/
-    orcid_id: 0000-0003-2196-5015 
-  - name: "Prof. Dr. Elizabeth Tilley"
-    url: https://ghe.ethz.ch/about/people/person-detail.MTc2MjI5.TGlzdC80MTI2LC0xNDYwMDMwNTU3.html
-    affiliation: Global Health Engineering, ETH Zurich
-    affiliation_url: https://ghe.ethz.ch/
-    orcid_id: 0000-0002-2095-9724
+title: "WASHCollab"
+subtitle: "Proposal for the 7th call for Contribute projects by the ETH Board"
 format: 
-  docx:
-    number-sections: true
-    toc: true
-  gfm:
-    number-sections: true
-citation: true
-bibliography: references.bib
+ docx:
+  number-sections: true
+  toc: true
+ gfm:
+  number-sections: true
+ html:
+  toc: true
+execute:
+ echo: false
+ warning: false
+bibliography: prop-eth-ord-washweb.bib
 csl: vancouver-brackets-no-et-al.csl
+editor_options: 
+ chunk_output_type: console
 ---
 
 ```{r}
@@ -32,181 +27,147 @@ library(tidyverse)
 ```{r}
 #| label: load-data
 
-tbl04 <- read_csv(here::here("data/tbl-04-wp-activities.csv"))
+## tbl-01-work-packages --------------------------------------------------
 
-wp_no <- tbl04$wp
+tbl01 <- read_csv(here::here("data/tables/tbl-01-work-packages.csv"))
 
-wp_name <- tbl04$name 
+wp_no <- tbl01$WP
+
+wp_name <- tbl01$Name
+
+## tbl-02-wp-activities-research-questions ------------------------------
+
+tbl02 <- read_csv(here::here("data/tables/tbl-02-wp-activities-research-questions.csv"))
+
+wp1_activities <- filter(tbl02, WP == "WP1") |> 
+ pull(`Project Activity`) 
+
+wp2_activities <- filter(tbl02, WP == "WP2") |>
+ pull(`Project Activity`)
+
+wp3_activities <- filter(tbl02, WP == "WP3") |>
+ pull(`Project Activity`)
+
 
 ```
 
 ```{r}
 
 ```
-# Call Info
-
-## Website
-
-- Measure 1: Calls for Field-Specific Actions
-- https://ethrat.ch/en/measure-1-calls-for-field-specific-actions/
-- Contribute projects will help researchers to contribute to existing open communities built around ORD. They will validate their integration with existing infrastructures (including international ones) and focus on their potential to advance the scientific impact of the field as well as their technical quality.
-
-## Aims
-
-Funding for “Contribute projects” aims at:
-
-- Contributing a piece of software, data, hardware, etc., which simplifies an established ORD practice, develops its research potential, or otherwise improves it.
-
-- Curating or otherwise improving available ORD, for example, by updating existing data to adapt it to the evolution of ORD practices or by linking different ORD datasets or by collecting and curating existing data before uploading it to an ORD platform.
-
-- Providing community services, such as the organization of a workshop or training, or coordination for the development of an ORD standard.
-
-## Application guidelines
-
-- https://ethrat.ch/wp-content/uploads/2023/10/Application-guidelines_TrackC-Contribute-projects-6th-call-FINAL.pdf
-- Preference will be given to projects which engage and are connected to a community
-
-## Application guidelines (ETH Zurich)
-
-- https://ethrat.ch/wp-content/uploads/2022/06/2022-05-00-ETH-ORD-EPFLETHZ-information-to-applicants-Contribute.pdf
-- For applicants at ETHZ
-- In this Contribute call, applicants at ETHZ must contribute 25% of the total budget from the resources of their lab/group/unit, either in-cash or  in-kind. See the budgeting guidelines below for eligible contributions
-- This means an additional 22’500 CHF for us and 7’500 CHF in-kind through my salary
-
-# Project Proposal
-
-Your project proposal must not exceed 6 pages, excluding the bibliography (A4, Arial 11-point font, 1.5 line-spacing, 2-centimeter margins). Please address all points below.
 
 # Abstract
 
 TODO: Get instructions from submission portal
 
+# Keywords
+
 # Proposal full title
 
-**Instructions**
+Enhancing Global WASH Data Accessibility through Collaborative Initiatives (washcollab)
 
-Please include a project title (max. 12 words); this title will be used for all correspondence. Proposal Acronym (mandatory)
+# Background and motiviation 
 
-# Background and motivation
+## Introduction to the partnership
 
-**Instructions**
+WASHWeb and openwashdata were connected through one of the lead statisticians of the Joint Monitoring Programme (JMP), which is the custodian of global data on Water Supply, Sanitation and Hygiene (WASH) hosted by the World Health Organization (WHO) and UNICEF. Sharing common goals for an improved WASH data ecosystem, WASHWeb and openwashdata formed a partnership. Both teams met in-person at ETH Zurich in order to collaboratively submit this funding proposal. 
 
-Please explain which aim(s) of the ORD “contribute projects” you seek to address:
+## WASHWeb
 
-- Contributing a piece of software, data, hardware, etc., which simplifies an established ORD practice, develops its research potential, or otherwise improves it.
-
-- Curating or otherwise improving available ORD. For example, by updating existing data to adapt it to the evolution of ORD practices. Or by linking different ORD datasets. Or by collecting and curating existing data before uploading it to an ORD platform.
-
-- Providing community services, such as the organization of a workshop or training, or coordination for the development of an ORD standard.
-
-
-## WASH Web
-
--   One paragraph. 50 to 70 words
+WASHWeb is a practice-oriented community for fostering advancements in water, sanitation, and hygiene (WASH) data. Through four thematic working groups, citizens, NGOs, governments, coders, researchers and publishers enrich WASH data discoverability, usability, and representation. WASHWeb’s platform exists to accelerate the collective improvement of the WASH data ecosystem towards the achievement of universal access to water, sanitation and hygiene. WASHWeb has authored the ORD WHO/UNICEF JMP R package [@nick2024washnote].
 
 ## openwashdata
 
--   One paragraph. 50 to 70 words
+openwashdata is a vibrant, global community that applies FAIR (Findable, Accessible, Interoperable, Reusable) principles to data generated in the WASH sector. The community focuses on data generated by researchers without making this a requirement, but due to the nature of openwashdata being placed within the Global Health Engineering group at ETH Zurich. More generally, the mission of openwashdata is to empower WASH professionals to engage with tools and workflows for open data and code, which is realised through education by the openwashdata academy providing training in the required competencies.
 
-## Common goals
+## Common goals 
 
--   One to two paragraphs (100 to 150 words)
+WASHWeb and openwashdata share a collective vision of enhancing the accessibility, usability, and representation of WASH data globally. By leveraging their respective strengths in WASH practice and research, the partnership aims to maintain existing open-source tools for analysing key WASH data, develop new tools in collaboration with data providers, and disseminate its ongoing work through webinars and conference events. The collaboration strives to democratise access to critical information by involving smaller organisations and communities in the pursuit of improved WASH outcomes.
 
 ## Problem statement
 
--   One to two paragraphs (100 to 150 words)
+Despite the wealth of information in the water, sanitation, and hygiene (WASH) sector, data remains siloed, challenging to access, and underutilised. Existing datasets from authoritative sources such as the World Health Organization (WHO) and UNICEF’s Joint Monitoring Programme (JMP), World Bank, UN-Water Global Analysis and Assessment of Sanitation and Drinking-Water (GLAAS), and the Organisation for Economic Co-operation and Development (OECD) are not easily reusable for research. Furthermore, the scattered and disconnected nature of WASH data ecosystems impedes accountability and hampers collaborative efforts. WASHWeb and openwashdata aim to address these challenges by fostering a participatory approach, engaging diverse stakeholders, and promoting ethical open data and open source principles to make crucial information more discoverable, representative, and actionable on a global scale.
 
 # ORD project plan
 
-**Instructions**
-
-Please describe your project design, including how it addresses the aim(s) of the ORD “contribute projects” described above. Please refer to the scientific literature as well as any preliminary, unpublished results that have informed your approach.
-
-- Which specific gap(s) in knowledge will your work address? Why is your approach innovative?
-- What questions will the project answer? What specific outcomes will you focus on?
-- Which strategy will you use to address the questions you seek to answer?
-
 ## `r paste0(wp_no[1], ": ", wp_name[1])`
 
-**Goal**:
+### Goal
 
--   Describe the work concisely in 1 paragraph (80 to 120 words)
+Work package 1: “Maintain” involves maintaining open source tools for researchers and product developers who analyse indicators of Sustainable Development Goal 6: “safe water and sanitation for all”. Specifically, WP1 will focus on maintaining the Joint Monitoring Programme (JMP) dataset for wider, more accessible use in the WASH community. Thanks to the funding the Global Health Engineering group received from the third call for Contribute projects by the ETH Board, we discovered that WASHWeb was actively working on tools we intended to develop. Instead of replicating efforts and creating inefficiencies, we invested in building a partnership between Global Health Engineering and WASHWeb. As researchers with experience in research data management, we now actively contribute to developing the tools to ensure compliance with FAIR data sharing practices [@wilkinson2016fair]. To work productively, we request the support of WASHWeb developer Nick Dickinson to maintain the technical parts of the package for increased usability. This will enable us as researchers to use the data more efficiently for our purposes (e.g. scientific blogs, teaching material, scientific publications).
 
-**Activities**
+### Activities
 
-1.  A
-2.  B
-3.  C
+```{epoxy}
+{1:length(wp1_activities)}. {wp1_activities[1:length(wp1_activities)]}
+```
 
-**Aims addressed**
+### Aims addressed
 
--   This is related to the aims of the Contribute call and we need to describe specifically how they are addressed by this WP
+Specifically, WP1 addresses two aims of the Contribute projects: We will be **contributing** by extending the ORD package to be able to shape the data into (long) formats for better usability by researchers. We are **curating** by updating and maintaining the data package. 
 
-## `r paste0(wp_no[1], ": ", wp_name[1])`
+The JMP dataset includes WASH indicators for all countries and therefore holds a very central role in many WASH analyses. This work is critical to improve both accessibility and (re)usability. We provide a community service by coordinating on the **development** of a flexible **ORD standard** for this specific dataset. 
 
-**Goal**:
+## `r paste0(wp_no[2], ": ", wp_name[2])`
 
--   Describe the work concisely in 1 paragraph (80 to 120 words)
+### Goal
 
-**Activities**
+Work Package 2: “Extend” builds on the work from WP1 by engaging with other authoritative data providers of economic data on water and sanitation in order to produce a new R dataset package to support practitioners and researchers with their analyses. Reliable economic data, including disbursements and expenditure are critical for research on WASH investments. Together with the data from WP1, researchers will be able to compare investments and economic conditions against outcomes (actual service levels). Organisation identifiers for financiers, such as bilateral donors, government bodies, and their receiving organisations are lacking in these formal datasets. This work package will add identifiers so that metadata on these organisations, such as the type of organisation and their geographic location, can be used to answer more targeted research questions on investments in WASH.
 
-1.  A
-2.  B
-3.  C
+Targeted data providers are:
 
-**Aims addressed**
+- UN-Water Global Analysis and Assessment of Sanitation and Drinking-water (GLAAS)*
+- Organisation for Economic Co-operation and Development Creditor Reporting System (OECD-CRS)
+- Sanitation and Water for All (SWA)
+- International Accountability and Transparency Initiative (IATI)
 
--   This is related to the aims of the Contribute call and we need to describe specifically how they are addressed by this WP
+The openwashdata and WASHWeb teams have worked with and are in contact with all of these organisations. The final dataset selection will be based on the level of collaboration of each data provider with our teams and overall technical feasibility. As a fallback, the public and freely available GLAAS data will be used. The technical development lead for the R data packages that are products of this WP2 will be with Nick Dickinson from WASHWeb, while the Global Health Engineering group will contribute by providing input on data sharing following FAIR data sharing practices. 
 
-## `r paste0(wp_no[1], ": ", wp_name[1])`
+### Activities
 
-**Goal**:
+```{epoxy}
+{1:length(wp2_activities)}. {wp2_activities[1:length(wp2_activities)]}
+```
 
--   Describe the work concisely in 1 paragraph (80 to 120 words)
+### Aims addressed
 
-**Activities**
+WP2 addresses the first two aims of the Contribute call by **contributing** new open source tools based on publicly available information from the most relevant international organisations, to support wider research capabilities and analyses in WASH research and practice. Additionally, this data will be **curated** to ensure the data is better organised with metadata to be able to classify the economic data for more refined analysis. 
 
-1.  A
-2.  B
-3.  C
+## `r paste0(wp_no[3], ": ", wp_name[3])`
 
-**Aims addressed**
+### Goal
 
--   This is related to the aims of the Contribute call and we need to describe specifically how they are addressed by this WP
+For wide scale use of the open data packages for WASH indicators, it is key that we promote and disseminate our work to a wider audience. In Work Package 3: “Disseminate”, we will host a webinar on innovations in WASH open data practices and use this opportunity to highlight ongoing progress under WP1 and WP2. Furthermore, the WASHWeb and openwashdata partnership will host a session at Stockholm World Water Week (SWWW) in August 2024 on the WASH data ecosystem, in collaboration with cross-sectoral partners representing research (University of KwaZulu-Natal, ETH Zurich), government (Government of South Africa), NGOs (IRCWASH, BASEflow Malawi, DigDeep), the UN (WHO-GLAAS), and the private sector (WASHNote). This session was accepted through a competitive application process for the largest, most prestigious water conference on Thursday, 11th April 2024. Finally, we will engage interested individuals and organisations to join discussion groups online, through Matrix. 
 
-## `r paste0(wp_no[1], ": ", wp_name[1])`
+### Activities
 
-**Goal**:
+```{epoxy}
+{1:length(wp3_activities)}. {wp3_activities[1:length(wp3_activities)]}
+```
 
--   Describe the work concisely in 1 paragraph (80 to 120 words)
+### Aims addressed
 
-**Activities**
-
-1.  A
-2.  B
-3.  C
-
-**Aims addressed**
-
--   This is related to the aims of the Contribute call and we need to describe specifically how they are addressed by this WP
+WP3 addresses the third aim of the Contribute call. We will **provide community services** through an online webinar (exp. 300 participants) to disseminate information about our ongoing work and the other work packages (WP1 and WP2), and we will host a workshop session at the largest annual water conference in the world (exp. 100 participants in the session, 15,000 attendees to the conference). Finally, these events will also engage the authoritative data providers to strengthen their link to ORD communities.
 
 # Impact
 
-Please address these specific points: 
-
 - How sustainable is the proposed project inside the ETH Domain? 
+
+This Contribute proposal is our next step towards the long-term sustainability of the openwashdata community within the ETH Domain. By collaborating with WASHWeb, an external ETH Domain actor, we will be able to promote them as an important, centralised partner who could also collaborate with other institutions within the ETH Domain (e.g., the Swiss Federal Institute of Aquatic Science and Technology (Eawag)). Therefore, the Global Health Engineering group can continue to invest in developing researcher-focused workflows in the ETH Domain and see these projects promoted through external actors who are experienced and respected professionals in the WASH sector—sustainability increases as we tap into sectors outside the research communities but benefit from them in return.
+
 - To what extent may an existing or a newly formed community (be able to) engage with the ORD practice(s) built-up during the project?
+
+As this Contribute proposal engages with two communities and the activities all revolve around engagement with community members, we expect significant take up in the ORD practices built up during the project. We will see an increased use of highly valuable data in research, practice, policy-making, and educational material. Due to our collaborative approach and the established openwashdata community, we can promote the data package through our numerous (ETH and external) educational activities. The communities will be able to identify several points of entry to engage with ORD practices as we grow our suite of available data and training.
 
 # Work Packages and milestones
 
-The following Table 2 shows a basic gantt chart against the four work packages, including program activities and community engagement. Column “Lead” abbreviations: 
+The following Table 1 shows a basic gantt chart against the four work packages, including program activities. Column “Lead” abbreviations: ND (Nick Dickinson), SA (Scientific Assistant), ML (Merel Laauwen)
 
-Any publications derived from this program will be published as open access material, following ORD practices and Open Science standards for computational reproducibility and sharing of data and code under FAIR principles.   
+Any publications derived from this program will be published as open access material, following ORD practices and Open Science standards for computational reproducibility and sharing of data and code under FAIR principles. 
 
 Table 2: https://docs.google.com/spreadsheets/d/1xMlMepWoq4lTRRP89x8A1A-1Bkqkn7hjslvpJ5XPXU8/edit#gid=0
 
 # Resources (including project costs)
 
-Table 4: https://docs.google.com/spreadsheets/d/1OKAFWg4PyPp7_BikkQOh9QQ8t982iOTHsB1c5A6SoqU/edit#gid=0
+Table 4: https://docs.google.com/spreadsheets/d/1p77mMyCWZ3r8N73ZjYB_u038cwsdsMWs6rMjDVwBW_c/edit#gid=0
 
 # Bibliography
